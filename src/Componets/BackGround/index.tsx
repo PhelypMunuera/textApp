@@ -28,11 +28,11 @@ export function BackGround() {
           start={{ x: 0, y: 0 }} // Ponto inicial (canto superior esquerdo)
           end={{ x: 1, y: 1 }}
         >
-          <ImageBackground
+          {/* <ImageBackground
             source={require('../../Assets/LogoWhite.png')}
             resizeMode="cover"
             style={styles.whiteLogo}
-          ></ImageBackground>
+          ></ImageBackground> */}
         </LinearGradient>
       </LinearGradient>
     </View>
