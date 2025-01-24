@@ -14,4 +14,14 @@ export const styles = StyleSheet.create({
     bottom: 0,
     alignSelf: 'center',
   },
+  gradient: {
+    flex: 1,
+  },
+
+  whiteLogo: {
+    width: 287,
+    height: 347,
+    marginTop: '50%',
+    alignSelf: 'center',
+  },
 });
