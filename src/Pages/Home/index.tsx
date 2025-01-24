@@ -1,5 +1,6 @@
 import { styles } from './styles';
 import { Text, View, ImageBackground } from 'react-native';
+import {} from 'expo';
 
 export function Home() {
   return (
