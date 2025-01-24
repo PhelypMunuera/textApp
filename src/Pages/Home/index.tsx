@@ -7,7 +7,7 @@ import { ProptAlert } from '../../Componets/Alert';
 export function Home() {
   return (
     <View style={styles.background}>
-      {/* <ProptAlert /> */}
+      <ProptAlert />
       <BackGround />
     </View>
   );
