@@ -9,7 +9,7 @@ import {
   StatusBar,
 } from 'react-native';
 
-export function ProptAlert() {
+export function ConfirmationGPS() {
   const [visible, setVisible] = useState(true);
 
   return (
@@ -65,3 +65,5 @@ barStyle={'light-content'}
 translucent={true}
 /> */
 }
+
+// checar o status do GPS -> se não tiver on entra nesse modal -> perde pra ligar  -> se aceitar liga // se nao aceitar chama o outro modal

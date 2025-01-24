@@ -1,8 +1,8 @@
 import { styles } from './styles';
-import { View, Alert, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 
 import { BackGround } from '../../Componets/BackGround';
-import { ProptAlert } from '../../Componets/Alert';
+import { ProptAlert } from '../../Componets/AlertGPS';
 
 export function Home() {
   return (
