@@ -1,5 +1,6 @@
 import { styles } from './styles';
 import { useState } from 'react';
+import { ConfirmationGPS } from '../ConfirmationGPS';
 import {
   View,
   Text,
@@ -41,7 +42,12 @@ export function ProptAlert() {
               <Text style={styles.buttonText}> sim </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={Bad}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                ConfirmationGPS();
+              }}
+            >
               <Text style={styles.buttonText}> não </Text>
             </TouchableOpacity>
           </View>

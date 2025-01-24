@@ -1,5 +1,6 @@
 import { styles } from './styles';
 import { useState } from 'react';
+import { ProptAlert } from '../AlertGPS';
 import {
   View,
   Text,
@@ -28,21 +29,27 @@ export function ConfirmationGPS() {
       <View style={styles.bgAlert}>
         <View style={styles.alert}>
           <Text style={styles.textAlert}>
-            Permitir que a ACORD acesse sua localização para ativar os alertas
+            O aplicativo não podera funcionar sem essa permissão. Deseja
+            retornar ao ACORD?
           </Text>
 
           <View style={styles.divButton}>
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
+                ProptAlert();
+              }} //como chamar a função para voltar
+            >
+              <Text style={styles.buttonText}> voltar </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
                 setVisible(false);
               }}
             >
-              <Text style={styles.buttonText}> sim </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.button} onPress={Bad}>
-              <Text style={styles.buttonText}> não </Text>
+              <Text style={styles.buttonText}> fechar </Text>
             </TouchableOpacity>
           </View>
         </View>
