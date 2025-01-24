@@ -6,4 +6,9 @@ export const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: '#128A98',
   },
+  buttons: {
+    width: '100%',
+    height: 100,
+    backgroundColor: '#797373',
+  },
 });
