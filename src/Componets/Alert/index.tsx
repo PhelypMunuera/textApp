@@ -1,3 +1,5 @@
+import { styles } from './styles';
+import { useState } from 'react';
 import {
   View,
   Text,
@@ -6,11 +8,17 @@ import {
   Modal,
   StatusBar,
 } from 'react-native';
-import { styles } from './styles';
 
 export function ProptAlert() {
+  const [visible, setVisible] = useState(true);
+
   return (
-    <Modal transparent={true} animationType="fade">
+    <Modal
+      visible={visible}
+      transparent={true}
+      animationType="fade"
+      onRequestClose={() => setVisible(false)}
+    >
       <StatusBar
         backgroundColor="transparent"
         barStyle={'light-content'}
@@ -27,7 +35,7 @@ export function ProptAlert() {
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
-                console.log('Sim');
+                setVisible(false);
               }}
             >
               <Text style={styles.buttonText}> sim </Text>
@@ -47,5 +55,13 @@ function Prompt() {
   console.log('aeeee');
 }
 function Bad() {
-  Alert.alert('hhhh');
+  Alert.alert('Você não pode continuar sem essa permissão');
+}
+
+{
+  /* <StatusBar
+backgroundColor="transparent"
+barStyle={'light-content'}
+translucent={true}
+/> */
 }
