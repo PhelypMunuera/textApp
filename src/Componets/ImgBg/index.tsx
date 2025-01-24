@@ -1,13 +1,7 @@
-import { ReactNode } from 'react';
+import { styles } from './styles';
 import { ImageBackground } from 'react-native';
 
-import { Container } from './styles';
-
-interface ImgBgProps {
-  children: ReactNode;
-}
-
-export function ImgBg() {
+export function ImBg() {
   return (
     <ImageBackground
       source={require('../../Assets/LogoWhite.png')}

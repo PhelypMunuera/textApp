@@ -1,5 +1,6 @@
 import { styles } from './styles';
 import { View, ImageBackground } from 'react-native';
+
 import { LinearGradient } from 'expo-linear-gradient';
 
 export function BackGround() {
@@ -27,13 +28,7 @@ export function BackGround() {
           style={styles.gradient}
           start={{ x: 0, y: 0 }} // Ponto inicial (canto superior esquerdo)
           end={{ x: 1, y: 1 }}
-        >
-          {/* <ImageBackground
-            source={require('../../Assets/LogoWhite.png')}
-            resizeMode="cover"
-            style={styles.whiteLogo}
-          ></ImageBackground> */}
-        </LinearGradient>
+        ></LinearGradient>
       </LinearGradient>
     </View>
   );
