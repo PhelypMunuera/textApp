@@ -4,6 +4,7 @@ import { View, Text } from 'react-native';
 import { BackGround } from '../../Componets/BackGround';
 import { LogoFloating } from '../../Componets/LogoFloating';
 import { MasckBacground } from '../../Componets/MasckBacground';
+import { Input } from '../../Componets/Input';
 
 export function SelectDestination() {
   return (
@@ -13,6 +14,8 @@ export function SelectDestination() {
       <Text style={styles.text}>
         Só uma perguntinha rápida antes de liberar seu sono!
       </Text>
+
+      <Input />
       <MasckBacground />
       <BackGround />
     </View>
@@ -20,6 +23,6 @@ export function SelectDestination() {
 }
 
 // import { ButtonsBig } from '../../Componets/ButtonsBig';
-// import { InputBase } from '../../Componets/InputBase';
+//
 // import { TextMessage } from '../../Componets/TextMessage';
 // import { MasckBacground } from '../../Componets/MasckBacground';

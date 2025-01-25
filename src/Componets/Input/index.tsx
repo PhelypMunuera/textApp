@@ -1,17 +1,16 @@
-import { ReactNode } from 'react';
-import { Text } from 'react-native';
+import { styles } from './styles';
+import { View, TextInput } from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
 
-import { Container } from './styles';
-
-interface InputProps {
-  children: ReactNode;
-}
-
-export function Input({ children }: InputProps) {
+export function Input() {
   return (
-    <Container>
-      <Text>Input</Text>
-      {children}
-    </Container>
+    <View style={styles.div}>
+      <TextInput
+        style={styles.inputBase}
+        placeholder="Informe o seu destino..."
+        placeholderTextColor="rgba(142, 142, 142, 1)"
+      />
+      <Icon style={styles.inputIcon} name="map-pin" size={30} />
+    </View>
   );
 }
