@@ -1,5 +1,15 @@
-import styled from 'styled-components/native';
+import { StyleSheet } from 'react-native';
 
-export const Container = styled.View`
+export const styles = StyleSheet.create({
+  addBackground: {
+    width: '100%',
+    height: 105,
 
-`;
+    backgroundColor: 'red',
+
+    position: 'static',
+    zIndex: 9,
+
+    bottom: 0,
+  },
+});

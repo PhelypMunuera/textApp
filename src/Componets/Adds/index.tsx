@@ -1,17 +1,6 @@
-import { ReactNode } from 'react';
-import { Text } from 'react-native';
+import { styles } from './styles';
+import { View, Text } from 'react-native';
 
-import { Container } from './styles';
-
-interface AddsProps {
-  children: ReactNode;
-}
-
-export function Adds({ children }: AddsProps) {
-  return (
-    <Container>
-      <Text>Adds</Text>
-      {children}
-    </Container>
-  );
+export function Adds() {
+  return <View style={styles.addBackground}></View>;
 }

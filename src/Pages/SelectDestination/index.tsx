@@ -1,11 +1,11 @@
 import { styles } from './styles';
 import { View, Text } from 'react-native';
-
+import { Input } from '../../Componets/Input';
+import { Adds } from '../../Componets/Adds';
+import { ButtonBig } from '../../Componets/ButtonBig';
 import { BackGround } from '../../Componets/BackGround';
 import { LogoFloating } from '../../Componets/LogoFloating';
 import { MasckBacground } from '../../Componets/MasckBacground';
-import { ButtonBig } from '../../Componets/ButtonBig';
-import { Input } from '../../Componets/Input';
 
 export function SelectDestination() {
   return (
@@ -17,13 +17,9 @@ export function SelectDestination() {
       </Text>
       <Input />
       <ButtonBig value={'continuar'} />
+      {/* <Adds /> adicionar o estilo dos add */}
       <MasckBacground />
       <BackGround />
     </View>
   );
 }
-
-//
-//
-// import { TextMessage } from '../../Componets/TextMessage';
-// import { MasckBacground } from '../../Componets/MasckBacground';
