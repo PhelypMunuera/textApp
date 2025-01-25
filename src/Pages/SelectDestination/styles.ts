@@ -11,4 +11,14 @@ export const styles = StyleSheet.create({
     height: 100,
     backgroundColor: '#797373',
   },
+  text: {
+    width: 325,
+    fontSize: 22,
+    color: 'rgba(142, 142, 142, 1)',
+    marginTop: 350,
+    alignSelf: 'center',
+    position: 'absolute',
+    zIndex: 3,
+    fontWeight: '300',
+  },
 });

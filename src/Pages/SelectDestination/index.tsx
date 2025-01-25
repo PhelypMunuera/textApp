@@ -1,5 +1,5 @@
 import { styles } from './styles';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 import { BackGround } from '../../Componets/BackGround';
 import { LogoFloating } from '../../Componets/LogoFloating';
@@ -9,6 +9,10 @@ export function SelectDestination() {
   return (
     <View style={styles.background}>
       <LogoFloating />
+
+      <Text style={styles.text}>
+        Só uma perguntinha rápida antes de liberar seu sono!
+      </Text>
       <MasckBacground />
       <BackGround />
     </View>
