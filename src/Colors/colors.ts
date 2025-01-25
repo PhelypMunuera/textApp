@@ -4,5 +4,6 @@
 // #2E9B71 // verde 500 -> rgba(46, 155, 113, 1)
 // #eeeeee // cinza 100 -> rgba(238, 238, 238, 1)
 // #D1D5D6 // cinza 300 -> rgba(209, 213, 214, 1)
+// #bebebe // cinza 400 -> rgba(190, 190, 190, 1)
 // #8E8E8E // cinza 500 -> rgba(142, 142, 142, 1)
 // #5e5e5e // cinza 700 -> rgba(94, 94, 94, 1)

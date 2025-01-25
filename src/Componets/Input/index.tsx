@@ -8,7 +8,7 @@ export function Input() {
       <TextInput
         style={styles.inputBase}
         placeholder="Informe o seu destino..."
-        placeholderTextColor="rgba(142, 142, 142, 1)"
+        placeholderTextColor="rgba(190, 190, 190, 1))"
       />
       <Icon style={styles.inputIcon} name="map-pin" size={30} />
     </View>

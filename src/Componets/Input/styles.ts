@@ -23,12 +23,14 @@ export const styles = StyleSheet.create({
     borderRadius: 16,
     padding: 14,
     fontWeight: 'bold',
+
+    color: 'rgba(142, 142, 142, 1)',
   },
 
   inputIcon: {
     height: 30,
     width: 30,
-    color: 'rgba(142, 142, 142, 1)',
+    color: 'rgba(190, 190, 190, 1)',
     position: 'absolute',
     right: 50,
   },
