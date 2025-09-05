@@ -4,33 +4,35 @@
     "slug": "acord",
     "version": "1.0.0",
     "orientation": "portrait",
-
-    "icon": "./assets/icon.png", 
-
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-
     "splash": {
-      "image": "./assets/icon.png",      
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#13262F"
     },
-
     "ios": {
       "supportsTablet": true
     },
-
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#13262F"
       }
     },
-
     "web": {
       "favicon": "./assets/favicon.png"
     },
-
-    "plugins": ["expo-asset"]
+    "plugins": [
+      "expo-asset",
+      [
+        "react-native-google-mobile-ads",
+        {
+          "android_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx",
+          "ios_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx"
+        }
+      ]
+    ]
   }
 }
