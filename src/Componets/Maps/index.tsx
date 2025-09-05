@@ -7,7 +7,7 @@ export function Maps() {
   return (
     <View style={styles.background}>
 <MapView
-  style={{ flex: 1 }}
+  style={styles.map}
   initialRegion={{
     latitude: -23.55052,
     longitude: -46.633308,
