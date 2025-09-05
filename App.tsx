@@ -1,28 +1,25 @@
-import React from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import { StatusBar } from 'react-native';
 
-export default function MapDebug() {
+import { View } from 'react-native';
+import { Home } from './src/Pages/Home';
+import { MapsView } from './src/Pages/MapsView';
+
+export default function App() {
   return (
-    <View style={s.container}>
-      <MapView
-        style={s.map}
-        provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : undefined}
-        initialRegion={{
-          latitude: -23.55052,
-          longitude: -46.633308,
-          latitudeDelta: 0.05,
-          longitudeDelta: 0.05,
-        }}
-        showsUserLocation={false}
-        loadingEnabled
-        onMapReady={() => console.log('MapReady ✅')}
+    <View>
+      <StatusBar
+        backgroundColor="transparent"
+        barStyle={'light-content'}
+        translucent={true}
       />
+
+      <MapsView />
     </View>
   );
 }
-const s = StyleSheet.create({
-  container: {   width: '100%',
-    height: '100%', backgroundColor: '#128A98' },
-  map: { ...StyleSheet.absoluteFillObject },
-});
+
+// <StatusBar
+//   barStyle={'light-content'}
+//   backgroundColor="transparent"
+//   translucent
+// />;
