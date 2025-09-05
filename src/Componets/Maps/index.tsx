@@ -3,7 +3,9 @@ import React from 'react';
 import  MapView  from 'react-native-maps'
 import { View, Text } from 'react-native';
 
+
 export function Maps() {
+  
   return (
     <View style={styles.background}>
 <MapView

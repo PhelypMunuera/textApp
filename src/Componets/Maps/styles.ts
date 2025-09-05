@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 
+
 export const styles = StyleSheet.create({
 background: {
     width: '100%',
@@ -19,6 +20,8 @@ background: {
 
     text: {
     fontSize: 22,
-    color: 'rgba(255, 255, 255, 1)',   
+    color: 'rgba(255, 255, 255, 1)', 
+    width: '100%',
+    paddingHorizontal: 30
     },
 });
