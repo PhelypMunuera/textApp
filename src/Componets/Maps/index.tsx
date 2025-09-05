@@ -10,13 +10,15 @@ export function Maps() {
     <View style={styles.background}>
 <MapView
   style={styles.map}
+
   initialRegion={{
-    latitude: -23.55052,
-    longitude: -46.633308,
-    latitudeDelta: 0.05,
-    longitudeDelta: 0.05,
+    latitude: -27.210753,
+    longitude: -49.644183,
+    latitudeDelta: 0.0143,
+    longitudeDelta: 0.0134,
   }}
-  showsUserLocation={false}
+
+  showsUserLocation
   loadingEnabled
 />
 

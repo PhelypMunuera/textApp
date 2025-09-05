@@ -13,7 +13,6 @@ export function MapsView() {
     <View style={styles.background}>
       <LogoFloating />
       <Maps/>
-      
       <BackGround />
     </View>
   );
