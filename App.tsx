@@ -17,7 +17,6 @@ export default function MapDebug() {
         showsUserLocation={false}
         loadingEnabled
         onMapReady={() => console.log('MapReady ✅')}
-        onError={(e) => console.log('Map error ❌', e?.nativeEvent)}
       />
     </View>
   );
