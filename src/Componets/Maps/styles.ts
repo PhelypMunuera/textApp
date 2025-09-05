@@ -3,9 +3,11 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 background: {
+  position: 'absolute',
+  zIndex: 2,
     width: '100%',
     height: '100%',
-    backgroundColor: '#128A98',
+    
   }, 
     
     map: {
