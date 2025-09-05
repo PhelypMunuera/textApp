@@ -1,25 +1,29 @@
-import { StatusBar } from 'react-native';
+import React from 'react';
+import { Platform, StyleSheet, View } from 'react-native';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
-import { View } from 'react-native';
-import { Home } from './src/Pages/Home';
-import { SelectDestination } from './src/Pages/SelectDestination';
-
-export default function App() {
+export default function MapDebug() {
   return (
-    <View>
-      <StatusBar
-        backgroundColor="transparent"
-        barStyle={'light-content'}
-        translucent={true}
+    <View style={s.container}>
+      <MapView
+        style={s.map}
+        provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : undefined}
+        initialRegion={{
+          latitude: -23.55052,
+          longitude: -46.633308,
+          latitudeDelta: 0.05,
+          longitudeDelta: 0.05,
+        }}
+        showsUserLocation={false}
+        loadingEnabled
+        onMapReady={() => console.log('MapReady ✅')}
+        onError={(e) => console.log('Map error ❌', e?.nativeEvent)}
       />
-
-      <SelectDestination />
     </View>
   );
 }
-
-// <StatusBar
-//   barStyle={'light-content'}
-//   backgroundColor="transparent"
-//   translucent
-// />;
+const s = StyleSheet.create({
+  container: {   width: '100%',
+    height: '100%', backgroundColor: '#128A98' },
+  map: { ...StyleSheet.absoluteFillObject },
+});
