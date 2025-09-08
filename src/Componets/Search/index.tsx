@@ -5,29 +5,47 @@ export function Search() {
   return (
     <View style={{ flex: 1, paddingTop: 50 }}>
       <GooglePlacesAutocomplete
-        placeholder="Buscar"
+        placeholder="Qual é seu destino..."
+        minLength={2}
+        debounce={300}
         fetchDetails
         query={{
-          key: "AIzaSyA56WZ8G_wleCQxyR5_rXIvTEaA_Drc7qE", 
+          key: "AIzaSyB8dZANe2f_Tu37jvyitU6DgI0FdiZPMEQ",
           language: "pt-BR",
         }}
+
+        // ✅ evita o crash no RN 0.79 (timeout precisa ser número)
+        timeout={15000}
+
         onPress={(data, details) => {
           console.log("DATA:", data);
           console.log("DETAILS:", details);
         }}
-        onFail={(error) => {
-          console.log("onFail (Places):", error);
+        onFail={(err) => {
+          console.log("onFail (Places):", err);
         }}
+        onNotFound={() => console.log("Nenhuma sugestão encontrada.")}
+
         enablePoweredByContainer={false}
-        predefinedPlaces={[]}       // evita .filter em undefined
-        listEmptyComponent={null}   // evita erro quando não há resultados
-        textInputProps={{           // garante que nunca seja undefined
+       
+      
+        textInputProps={{
           onFocus: () => {},
           onBlur: () => {},
+          autoCorrect: false,
+          autoCapitalize: "none",
         }}
         styles={{
-          listView: { zIndex: 1000 },
+          container: { flex: 0, zIndex: 1002 },
           textInputContainer: { zIndex: 1001 },
+          listView: {
+            position: "absolute",
+            top: 50,
+            left: 0,
+            right: 0,
+            zIndex: 1000,
+            elevation: 1000,
+          },
         }}
       />
     </View>
