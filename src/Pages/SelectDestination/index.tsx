@@ -1,6 +1,6 @@
 import { styles } from './styles';
 import { View, Text } from 'react-native';
-import { Input } from '../../Componets/Input';
+import { Search } from '../../Componets/Search';
 import { Adds } from '../../Componets/Adds';
 import { ButtonBig } from '../../Componets/ButtonBig';
 import { BackGround } from '../../Componets/BackGround';
@@ -15,7 +15,7 @@ export function SelectDestination() {
       <Text style={styles.text}>
         Só uma perguntinha rápida antes de liberar seu sono!
       </Text>
-      <Input />
+      <Search />
       <ButtonBig value={'continuar'} />
       {/* <Adds /> adicionar o estilo dos add */}
       <MasckBacground />

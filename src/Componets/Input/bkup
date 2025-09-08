@@ -1,0 +1,34 @@
+// import { styles } from './styles';
+// import { View, TextInput } from 'react-native';
+// import Icon from 'react-native-vector-icons/Feather';
+// import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+
+// export function Input() {
+//   return (
+//     <View style={styles.div}>
+// <GooglePlacesAutocomplete
+      
+//        placeholder="Informe o seu destino..."
+       
+//         onPress={(data, details = null) => {
+//           console.log(data, details);
+//         }}
+//         query={{
+//           key: "SUA_GOOGLE_API_KEY_AQUI",
+//           language: "pt-BR",
+//         }}
+//         fetchDetails={true}
+//       />
+
+//       <TextInput
+       
+        
+      
+//       />
+//       <Icon style={styles.inputIcon} name="map-pin" size={30} />
+//     </View>
+//   );
+// }
+
+//  style={styles.inputBase}
+//          placeholderTextColor="rgba(190, 190, 190, 1))"
