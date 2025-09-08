@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     zIndex: 11,
 
     alignSelf: 'center',
-    marginTop: 500,
+    marginTop: 650,
 
     borderRadius: 50,
 

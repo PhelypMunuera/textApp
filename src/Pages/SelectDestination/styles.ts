@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     width: 325,
     fontSize: 22,
     color: 'rgba(142, 142, 142, 1)',
-    marginTop: 350,
+    marginTop: 280,
     alignSelf: 'center',
     position: 'absolute',
     zIndex: 3,
