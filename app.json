@@ -13,14 +13,22 @@
       "backgroundColor": "#13262F"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "config": {
+        "googleMapsApiKey": "AIzaSyA56WZ8G_wleCQxyR5_rXIvTEaA_Drc7qE"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/splash-icon.png",
         "backgroundColor": "#13262F"
       },
-      "package": "com.anonymous.acord"
+      "package": "com.anonymous.acord",
+      "config": {
+        "googleMaps": {
+          "apiKey": "SUA_CHAVE_ANDROID_AQUI"
+        }
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
