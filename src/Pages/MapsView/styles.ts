@@ -16,6 +16,7 @@ background: {
     position: 'absolute',
     zIndex: 3,
     fontWeight: '300',
+    borderRadius: 30,
   },
 
 });
