@@ -8,5 +8,5 @@ export function Search() {
   styles={placesStyles} placeholder="Qual é seu destino..." 
   query={{ key: "AIzaSyB8dZANe2f_Tu37jvyitU6DgI0FdiZPMEQ", language: "pt-BR", }} 
   onPress={(data, details) => { }} minLength={2} fetchDetails /> 
-  </View> )
+  </View>)
 }
