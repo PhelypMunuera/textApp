@@ -4,7 +4,7 @@
     "slug": "acord",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/splash-icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
@@ -17,9 +17,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/splash-icon.png",
         "backgroundColor": "#13262F"
-      }
+      },
+      "package": "com.anonymous.acord"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -27,10 +28,10 @@
     "plugins": [
       "expo-asset",
       [
-        "react-native-google-mobile-ads",
+         "react-native-google-mobile-ads",
         {
-          "android_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx",
-          "ios_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx"
+          "androidAppId": "ca-app-pub-3940256099942544~3347511713",
+          "iosAppId": "ca-app-pub-3940256099942544~1458002511"
         }
       ]
     ]
