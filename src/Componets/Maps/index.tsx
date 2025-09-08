@@ -45,6 +45,7 @@ export function Maps() {
         loadingEnabled
         onRegionChangeComplete={(r) => setRegion(r)} // atualiza estado ao mover o mapa
       />
+      {/*barra de progresso*/}
       <Text style={styles.text}>
         Em 3,2 km nós o acordaremos. Pode ficar tranquilo!
       </Text>
