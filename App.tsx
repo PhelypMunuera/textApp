@@ -2,7 +2,7 @@ import { StatusBar } from 'react-native';
 
 import { View } from 'react-native';
 import { Home } from './src/Pages/Home';
-import { MapsView } from './src/Pages/MapsView';
+import { SelectDestination } from './src/Pages/SelectDestination';
 
 export default function App() {
   return (
@@ -13,7 +13,7 @@ export default function App() {
         translucent={true}
       />
 
-      <MapsView />
+      <SelectDestination />
     </View>
   );
 }
