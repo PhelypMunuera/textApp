@@ -1,21 +1,31 @@
 import { StyleSheet } from 'react-native';
+import { Platform } from 'react-native';
 
 export const placesStyles = {
 
 
 
-   container: { flex: 0 }, // não ocupa a tela toda
+   container: { 
+    position:"absolut",
+    top: Platform.select({ios:60, android:50}),
+    width: "100%" 
+   },
 
-  textInputContainer: { flexDirection: "row", justifyContent: "center" },
+  textInputContainer: { 
+    flexDirection: "row", 
+    justifyContent: "center" 
+  },
 
   textInput: {
-    flex: 0,              // <- mata o flex:1 padrão do lib
+    flex: 0,    
+    height: 44,  
     width: "95%",
     alignSelf: "center",
-    height: 44,
+    
     borderRadius: 8,
     paddingHorizontal: 10,
     backgroundColor: "#fff",
+
       // iOS
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
@@ -32,10 +42,11 @@ export const placesStyles = {
     width: "95%",
     alignSelf: "center", 
     position: "absolute",
-    top: 50,
+    top: 25,
     zIndex: 1000,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
+    
       // iOS
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
@@ -51,23 +62,30 @@ export const placesStyles = {
 
 export const styles = StyleSheet.create({
 masck: {
-  flex: 1,
-  width: '100%',
-  height: 50,
-  position: 'absolute',
-  flexDirection: 'row',
-  marginTop: 50,
-  justifyContent: 'center',
-  alignItems: 'center',
-  zIndex: 10,
-  //colocar sombra
+  
 },
 
 
 
 });
 
+// flex: 1,
+//   width: '100%',
+//   height: 50,
+//   position: 'absolute',
+//   flexDirection: 'row',
+//   marginTop: 0,
+//   justifyContent: 'center',
+//   alignItems: 'center',
+//   zIndex: 10,
+//    // iOS
+//     shadowColor: '#000',
+//     shadowOffset: { width: 0, height: 4 },
+//     shadowOpacity: 0.15,
+//     shadowRadius: 12,
 
+//     // Android
+//     elevation: 6,
 
 
 //  div: {
