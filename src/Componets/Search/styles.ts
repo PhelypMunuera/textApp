@@ -24,12 +24,11 @@ export const placesStyles = {
     width: "95%",
     alignSelf: "center", 
     position: "absolute",
-    top: 23,
+    top: 50,
     zIndex: 1000,
     elevation: 1000,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
-    
   },
 };
 
@@ -38,18 +37,15 @@ export const placesStyles = {
 export const styles = StyleSheet.create({
 masck: {
   flex: 1,
-  paddingTop: 50,
-   width: '100%',
-    height: 50,
-    position: 'absolute',
-    flexDirection: 'row',
-
-    marginTop: 320,
-
-    justifyContent: 'center',
-    alignItems: 'center',
-
-    zIndex: 10,
+  width: '100%',
+  height: 50,
+  position: 'absolute',
+  flexDirection: 'row',
+  marginTop: 50,
+  justifyContent: 'center',
+  alignItems: 'center',
+  zIndex: 10,
+  //colocar sombra
 },
 
 
