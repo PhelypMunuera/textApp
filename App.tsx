@@ -3,7 +3,7 @@ import 'react-native-get-random-values';
 
 import { View } from 'react-native';
 import { Home } from './src/Pages/Home';
-import { SelectDestination } from './src/Pages/SelectDestination';
+import { MapsView } from './src/Pages/MapsView';
 
 export default function App() {
   return (
@@ -14,7 +14,7 @@ export default function App() {
         translucent={true}
       />
 
-      <SelectDestination />
+      <MapsView />
     </View>
   );
 }

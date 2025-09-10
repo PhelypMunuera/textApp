@@ -1,6 +1,6 @@
 import { styles } from './styles';
 import { View, Text } from 'react-native';
-import { Input } from '../../Componets/Input';
+import { Search } from '../../Componets/Search';
 import { Adds } from '../../Componets/Adds';
 import { ButtonBig } from '../../Componets/ButtonBig';
 import { BackGround } from '../../Componets/BackGround';
@@ -13,6 +13,8 @@ export function MapsView() {
     <View style={styles.background}>
       <LogoFloating />
       <Maps/>
+      <Search />
+      <ButtonBig value={'continuar'} />
        <MasckBacground />
       <BackGround />
     </View>

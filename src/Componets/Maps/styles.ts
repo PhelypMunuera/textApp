@@ -11,13 +11,7 @@ background: {
   }, 
     
     map: {
-      width: '85%',
-      height: '75%',
-      justifyContent: "center",
-      alignItems: "center",
-      borderRadius: 30,
-      alignSelf: "center",
-      marginTop: 40,
+    height: '90%',
     },
 
     text: {
