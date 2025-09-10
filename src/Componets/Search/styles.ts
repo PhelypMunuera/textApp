@@ -16,6 +16,14 @@ export const placesStyles = {
     borderRadius: 8,
     paddingHorizontal: 10,
     backgroundColor: "#fff",
+      // iOS
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+
+    // Android
+    elevation: 6,
   },
 
  
@@ -26,9 +34,16 @@ export const placesStyles = {
     position: "absolute",
     top: 50,
     zIndex: 1000,
-    elevation: 1000,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
+      // iOS
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+
+    // Android
+    elevation: 6,
   },
 };
 

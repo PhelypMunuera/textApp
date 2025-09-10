@@ -13,6 +13,15 @@ export const styles = StyleSheet.create({
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
+
+     // iOS
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+
+    // Android
+    elevation: 6,
   },
 
   textButton: {
