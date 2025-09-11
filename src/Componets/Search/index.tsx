@@ -1,12 +1,20 @@
 import React, { useRef, useState } from "react";
 import { View, Keyboard } from "react-native";
-import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import {
+  GooglePlacesAutocomplete,
+  GooglePlacesAutocompleteRef,
+} from "react-native-google-places-autocomplete";
 import { styles, placesStyles } from "./styles";
 
 export function Search() {
-  const placesRef = useRef(null);
+  const placesRef = useRef<GooglePlacesAutocompleteRef>(null);
   const [query, setQuery] = useState("");
-  const [selectedPlace, setSelectedPlace] = useState(null);
+  const [selectedPlace, setSelectedPlace] = useState<null | {
+    description: string;
+    place_id: string;
+    lat?: number;
+    lng?: number;
+  }>(null);
 
   return (
     <View style={styles.masck}>
