@@ -1,6 +1,6 @@
 import {Search} from "../Search"
 
-import MapView from 'react-native-maps';
+import MapView, {Marker}  from 'react-native-maps';
 import { useEffect, useState, useRef } from "react";
 import { View } from "react-native";
 import { styles } from "./styles";
@@ -13,7 +13,9 @@ import {
 } from "expo-location";
 
 export function Maps() {
-  const [location, setLocation] = useState<LocationObject | null>(null);
+  const [location, setLocation,] = useState<LocationObject | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState<{ lat: number; lng: number } | null>(null);
+
 
   const mapRef = useRef<MapView>(null);
 
@@ -26,14 +28,20 @@ export function Maps() {
         latitudeDelta: 0.005,   
         longitudeDelta: 0.005,
       },
-      1000 
+      
+      1000,
+     
     );
+    setSelectedLocation({ lat, lng });
 
-
+ 
    console.log("[Maps] (onLayout) Aplicando animação pendente para:", { lat, lng });
-           
-
   }
+
+  // função ate aqui
+
+
+
 
   async function requestLocationPermissions() {
     const { granted } = await requestForegroundPermissionsAsync();
@@ -82,7 +90,17 @@ export function Maps() {
            }
          }
          showsUserLocation={true}
-       />
+       >
+        {selectedLocation && (
+    <Marker
+      coordinate={{
+        latitude: selectedLocation.lat,
+        longitude: selectedLocation.lng,
+      }}
+      title="Destino"
+    />
+  )}
+       </MapView>
      }
 
 
