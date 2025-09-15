@@ -1,7 +1,7 @@
 import { Search } from "../Search";
 import { ButtonBig } from "../../Componets/ButtonBig";
 import MapViewDirections from "react-native-maps-directions";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, Polyline } from "react-native-maps";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { View, Modal, Text, TouchableOpacity, FlatList, StyleSheet, Platform } from "react-native";
 import { styles } from "./styles";
@@ -231,29 +231,40 @@ export function Maps() {
           )}
 
           {/* Desenha a rota geral de transporte público (Google decide o percurso) */}
-          {showRoute && location && selectedLocation && (
-            <MapViewDirections
-              origin={{
-                latitude: location.coords.latitude,
-                longitude: location.coords.longitude,
-              }}
-              destination={{
-                latitude: selectedLocation.lat,
-                longitude: selectedLocation.lng,
-              }}
-              apikey={'AIzaSyB8dZANe2f_Tu37jvyitU6DgI0FdiZPMEQ'}
-              strokeWidth={6}
-              strokeColor="#1e5164ff"
-              mode="TRANSIT"
-              onReady={(res) => {
-                mapRef.current?.fitToCoordinates(res.coordinates, {
-                  edgePadding: { top: 80, right: 80, bottom: 80, left: 80 },
-                  animated: true,
-                });
-              }}
-              onError={(e) => console.warn("Transit Directions error:", e)}
-            />
-          )}
+          {showRoute && location && nearestBusStop && (
+  <MapViewDirections
+    origin={{
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude,
+    }}
+    destination={{
+      latitude: nearestBusStop.lat,
+      longitude: nearestBusStop.lng,
+    }}
+    apikey={'AIzaSyB8dZANe2f_Tu37jvyitU6DgI0FdiZPMEQ'}
+    strokeWidth={6}
+    strokeColor="#1e5164ff"
+    mode="WALKING" // trecho até o ponto: azul sólido
+    onReady={(res) => {
+      mapRef.current?.fitToCoordinates(res.coordinates, {
+        edgePadding: { top: 80, right: 80, bottom: 80, left: 80 },
+        animated: true,
+      });
+    }}
+    onError={(e) => console.warn("Walking Directions error:", e)}
+  />
+)}
+{showRoute && nearestBusStop && selectedLocation && (
+  <Polyline
+    coordinates={[
+      { latitude: nearestBusStop.lat, longitude: nearestBusStop.lng },
+      { latitude: selectedLocation.lat, longitude: selectedLocation.lng },
+    ]}
+    strokeColor="green"           // cor diferente
+    strokeWidth={4}
+    lineDashPattern={[10, 10]}    // padrão pontilhado (10px linha, 10px espaço)
+  />
+)}
         </MapView>
       )}
 
