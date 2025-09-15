@@ -1,5 +1,5 @@
 import {Search} from "../Search"
-
+import { ButtonBig } from '../../Componets/ButtonBig';
 import MapView, {Marker}  from 'react-native-maps';
 import { useEffect, useState, useRef } from "react";
 import { View } from "react-native";
@@ -12,14 +12,18 @@ import {
   LocationAccuracy
 } from "expo-location";
 
+type Props = {
+  value: string;
+  onPress?: () => void; 
+  disabled?: boolean;
+};
+
 export function Maps() {
   const [location, setLocation,] = useState<LocationObject | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<{ lat: number; lng: number } | null>(null);
 
-
   const mapRef = useRef<MapView>(null);
 
-  // Recebe lat/lng do onPress do GooglePlacesAutocomplete e move a câmera
   function handleLocationSelected({ lat, lng }: { lat: number; lng: number }) {
     mapRef.current?.animateToRegion(
       {
@@ -33,14 +37,15 @@ export function Maps() {
      
     );
     setSelectedLocation({ lat, lng });
-
- 
-   console.log("[Maps] (onLayout) Aplicando animação pendente para:", { lat, lng });
   }
 
-  // função ate aqui
 
-
+function creatDirections() {
+if (location && selectedLocation) {
+    console.log("posição atual:", location.coords.latitude, location.coords.longitude);
+    console.log("seu destino:", selectedLocation.lat, selectedLocation.lng);
+  } 
+}
 
 
   async function requestLocationPermissions() {
@@ -76,6 +81,8 @@ export function Maps() {
     <View style={styles.background}>
     <Search style={styles.mapsearch}
      onLocationSelected={handleLocationSelected} />
+    <ButtonBig value="continuar" onPress={creatDirections} />
+
      {
       location && 
        <MapView

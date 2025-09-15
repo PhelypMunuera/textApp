@@ -14,7 +14,7 @@ export function MapsView() {
       <LogoFloating />
       <Maps/>
       
-      <ButtonBig value={'continuar'} />
+
        <MasckBacground />
       <BackGround />
     </View>

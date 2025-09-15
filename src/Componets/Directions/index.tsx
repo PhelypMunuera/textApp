@@ -15,7 +15,7 @@ const Direction: React.FC<DirectionProps> = ({ destination, origin, onReady, api
     origin={origin}
     onReady={onReady}
     apikey= "AIzaSyB8dZANe2f_Tu37jvyitU6DgI0FdiZPMEQ" 
-    strokeWidth={3}
+    strokeWidth={4}
     strokeColor="#0B2934"
   />
 );
