@@ -227,3 +227,102 @@ export function Maps() {
     </View>
   );
 }
+
+
+
+
+// cod para atualizar meu local a buscar com o ponto de onibus 
+
+assim esta meu codigo tudo funcionando certinho, preciso de um ultimo detalhe que PRECIOS PEGAR O PONTO DE ONIBUS MAIS PROXIMO DO DESTINO INFORMADO 
+
+COMOQUANDO ESCOLHEMOS NO GOOGLE E SELECIONAMOS A OPÇÃO DE IR DE ONIBUS 
+React-Native + Expo Assistant disse:
+Pensou por 52s
+
+perfeito! pra pegar o ponto de ônibus mais próximo do destino você pode usar o Google Places Nearby Search com type=transit_station (ou bus_station). Abaixo estão só os trechos que você precisa adicionar/alterar no seu arquivo atual.
+
+1) state extra + sua API key (precisa habilitar Places API)
+// coloque perto dos outros useState
+const [nearestBusStop, setNearestBusStop] = useState<{ name: string; lat: number; lng: number } | null>(null);
+
+// ideal: use env/Secrets, aqui só pra exemplo:
+const GOOGLE_MAPS_APIKEY = "SUA_CHAVE_AQUI";
+
+2) função para buscar o ponto de ônibus mais próximo do destino
+async function findNearestBusStop(lat: number, lng: number) {
+  try {
+    // rankby=distance retorna o mais próximo (não use radius junto)
+    const url =
+      `https://maps.googleapis.com/maps/api/place/nearbysearch/json` +
+      `?location=${lat},${lng}` +
+      `&rankby=distance` +
+      `&type=transit_station` + // ou "bus_station"
+      `&key=${GOOGLE_MAPS_APIKEY}`;
+
+    const res = await fetch(url);
+    const json = await res.json();
+
+    const place = json?.results?.[0];
+    if (place) {
+      setNearestBusStop({
+        name: place.name,
+        lat: place.geometry.location.lat,
+        lng: place.geometry.location.lng,
+      });
+    } else {
+      setNearestBusStop(null);
+    }
+  } catch (e) {
+    console.warn("Erro Places Nearby:", e);
+    setNearestBusStop(null);
+  }
+}
+
+3) ajustar seu creatDirections para buscar o ponto e então mostrar a rota
+async function creatDirections() {
+  if (location && selectedLocation) {
+    // busca o ponto de ônibus mais próximo do DESTINO escolhido
+    await findNearestBusStop(selectedLocation.lat, selectedLocation.lng);
+    setShowRoute(true);
+  }
+}
+
+4) no <MapView>: usar o ponto de ônibus como destino da rota (se existir) e marcar no mapa
+{selectedLocation && (
+  <Marker
+    coordinate={{ latitude: selectedLocation.lat, longitude: selectedLocation.lng }}
+    title="Destino"
+  />
+)}
+
+{nearestBusStop && (
+  <Marker
+    coordinate={{ latitude: nearestBusStop.lat, longitude: nearestBusStop.lng }}
+    title={nearestBusStop.name || "Ponto de ônibus"}
+    description="Ponto mais próximo do destino"
+  />
+)}
+
+{showRoute && location && (nearestBusStop || selectedLocation) && (
+  <MapViewDirections
+    origin={{
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude,
+    }}
+    destination={{
+      latitude: (nearestBusStop?.lat ?? selectedLocation!.lat),
+      longitude: (nearestBusStop?.lng ?? selectedLocation!.lng),
+    }}
+    mode="TRANSIT"                 // usa rotas de transporte público
+    apikey={GOOGLE_MAPS_APIKEY}    // mesma key (Places + Directions habilitadas)
+    strokeWidth={6}
+    strokeColor="#1e5164ff"
+    onReady={(res) => {
+      mapRef.current?.fitToCoordinates(res.coordinates, {
+        edgePadding: { top: 80, right: 80, bottom: 80, left: 80 },
+        animated: true,
+      });
+    }}
+    onError={(e) => console.warn("Directions error:", e)}
+  />
+)}
