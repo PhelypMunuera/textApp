@@ -62,7 +62,7 @@ export const placesStyles = {
 
 export const styles = StyleSheet.create({
 masck: {
-  
+  flex: 0
 },
 
 
