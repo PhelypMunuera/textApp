@@ -1,26 +1,25 @@
 import React, { useRef, useState } from "react";
-import { View, Keyboard } from "react-native";
+import { View, Keyboard, StyleProp, ViewStyle  } from "react-native";
 import {
   GooglePlacesAutocomplete,
   GooglePlacesAutocompleteRef,
+  GooglePlaceDetail, 
 } from "react-native-google-places-autocomplete";
 import { styles, placesStyles } from "./styles";
 
-type SelectedPlace = {
-  description: string;
-  place_id: string;
-  lat?: number;
-  lng?: number;
-};
+type Coordinates = { lat: number; lng: number };
 
-type Props = {
-  onLocationSelected?: (place: SelectedPlace) => void;
+type Props = { 
+  onLocationSelected: (coords: Coordinates) => void;
+   style?: StyleProp<ViewStyle>; 
 };
 
 export function Search({ onLocationSelected }: Props) {
+
   const placesRef = useRef<GooglePlacesAutocompleteRef>(null);
+
+
   const [query, setQuery] = useState("");
-  const [selectedPlace, setSelectedPlace] = useState<SelectedPlace | null>(null);
 
   return (
     <View style={styles.masck}>
@@ -35,24 +34,29 @@ export function Search({ onLocationSelected }: Props) {
           key: "AIzaSyB8dZANe2f_Tu37jvyitU6DgI0FdiZPMEQ",
           language: "pt-BR",
         }}
-        onPress={(data, details) => {
-          const coords = details?.geometry?.location;
-          const place: SelectedPlace = {
-            description: data.description,
-            place_id: data.place_id!,
-            lat: coords?.lat,
-            lng: coords?.lng,
-          };
 
-          setSelectedPlace(place);
-          onLocationSelected?.(place); //essa função quem chamara as propriedades para o desttio, apos o usuario selecionar o 
+
+
+
+        onPress={(data, details: GooglePlaceDetail | null) => {
+          // Tenta pegar as coordenadas do lugar selecionado
+          const coords = details?.geometry?.location;
+    
+
+if (!coords) return; 
+
+          onLocationSelected?.({lat: coords.lat, lng: coords.lng}          
+      );
+          
+           console.log("onLocationSelected é:", coords);
+         
 
           setQuery(data.description);
           placesRef.current?.setAddressText(data.description);
-          Keyboard.dismiss();
-
-         console.log(data, details)
+          Keyboard.dismiss();      
         }}
+
+
         textInputProps={{
           value: query,
           onChangeText: (text) => {
@@ -67,9 +71,9 @@ export function Search({ onLocationSelected }: Props) {
           returnKeyType: "search",
           autoCorrect: false,
         }}
-        enablePoweredByContainer={false}
-        keyboardShouldPersistTaps="handled"
-        keepResultsAfterBlur={false}
+        enablePoweredByContainer={false}      
+        keyboardShouldPersistTaps="handled"   
+        keepResultsAfterBlur={false}      
       />
     </View>
   );

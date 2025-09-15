@@ -13,7 +13,7 @@ export function MapsView() {
     <View style={styles.background}>
       <LogoFloating />
       <Maps/>
-      <Search />
+      
       <ButtonBig value={'continuar'} />
        <MasckBacground />
       <BackGround />
