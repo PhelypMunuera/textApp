@@ -12,9 +12,7 @@ export function MapsView() {
   return (
     <View style={styles.background}>
       <LogoFloating />
-      <Maps/>
-      
-
+      <Maps/>   
        <MasckBacground />
       <BackGround />
     </View>

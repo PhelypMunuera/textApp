@@ -1,5 +1,6 @@
 import {Search} from "../Search"
 import { ButtonBig } from '../../Componets/ButtonBig';
+import MapViewDirections from "react-native-maps-directions";
 import MapView, {Marker}  from 'react-native-maps';
 import { useEffect, useState, useRef } from "react";
 import { View } from "react-native";
@@ -20,7 +21,9 @@ type Props = {
 
 export function Maps() {
   const [location, setLocation,] = useState<LocationObject | null>(null);
+  // const [destination] = useDirection<number>(null)
   const [selectedLocation, setSelectedLocation] = useState<{ lat: number; lng: number } | null>(null);
+  const [showRoute, setShowRoute] = useState(false);
 
   const mapRef = useRef<MapView>(null);
 
@@ -42,6 +45,8 @@ export function Maps() {
 
 function creatDirections() {
 if (location && selectedLocation) {
+    setShowRoute(true);
+
     console.log("posição atual:", location.coords.latitude, location.coords.longitude);
     console.log("seu destino:", selectedLocation.lat, selectedLocation.lng);
   } 
@@ -106,7 +111,30 @@ if (location && selectedLocation) {
       }}
       title="Destino"
     />
+    
   )}
+  {showRoute && location && selectedLocation && (
+  <MapViewDirections
+    origin={{
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude,
+    }}
+    destination={{
+      latitude: selectedLocation.lat,
+      longitude: selectedLocation.lng,
+    }}
+    apikey={'AIzaSyB8dZANe2f_Tu37jvyitU6DgI0FdiZPMEQ'}
+    strokeWidth={6}
+    strokeColor="#1e5164ff"
+    onReady={(res) => {
+      mapRef.current?.fitToCoordinates(res.coordinates, {
+        edgePadding: { top: 80, right: 80, bottom: 80, left: 80 },
+        animated: true,
+      });
+    }}
+    onError={(e) => console.warn("Directions error:", e)}
+  />
+)}
        </MapView>
      }
 
